@@ -1,0 +1,46 @@
+<div class="container">
+    <div>
+        <h2>Modifier une parfume :</h2>
+    </div>
+    <form >
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Parfume</label>
+    <input type="text" [(ngModel)]="currentParfume.idParfume"
+    name="idParfume" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Parfume </label>
+    <input type="text"[(ngModel)]= "currentParfume.nomParfume"
+    name="nomParfume" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Nombre Parfumes</label>
+    <input type="number" [(ngModel)]= "currentParfume.nombreParfumes"
+    name="nombreParfumes" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Date création</label>
+    <input type="date" [ngModel]="currentParfume.dateCreation| date: 'yyyy-MM-dd'"
+    (ngModelChange)=" currentParfume.dateCreation= $event" name="dateCreation" class="form-control">
+
+</div>
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <select class="form-control form-control-lg" id="idCat" name="idCat"
+    [(ngModel)]="currentParfume.categorie.idCat">
+    <option *ngFor="let cat of categories" [value]="cat.idCat" >
+    
+    {{cat.nomCat}}
+    
+    </option>
+    </select>
+    </div>
+
+<div class="mt-2">
+
+<button type="submit" (click)="updateParfume()" class="btn btn-success">Modifer</button>
+
+</div>
+</form>
+
+</div>

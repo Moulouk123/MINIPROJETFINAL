@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped table-dark">
+                
+                    <tr> <th>Id</th><th>Nom</th> <th>Nombre Parfumes</th> <th>Date Création</th><th>Catégorie</th> </tr>
+                
+                     <tbody *ngFor="let parfume of parfumes">
+    
+                        <tr >
+                            <td>{{parfume.idParfume}}</td>
+                            <td>{{parfume.nomParfume}}</td>
+                            <td>{{parfume.nombreParfumes}}</td>
+                            <td>{{parfume.dateCreation | date:'dd/MM/yyyy'}}</td>
+                            <td>{{parfume.categorie.nomCat}}</td>
+                            <td><a *ngIf="authService.isAdmin()" class="btn btn-danger btn-lg" (click)="supprimerParfume(parfume)">Supprimer</a></td>
+                            <td><a *ngIf="authService.isAdmin()" class="btn btn-success btn-lg" [routerLink]="['/updateParfume',parfume.idParfume]">Modifier</a></td>
+                        </tr>
+                    </tbody>
+    
+            </table>
+        </div>
+    </div>
+</div>
